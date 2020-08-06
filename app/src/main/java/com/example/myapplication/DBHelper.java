@@ -13,6 +13,7 @@ import java.util.ArrayList;
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE EMPLOYEE " +
                             "(ID String PRIMARY KEY, NAME TEXT,  pass INTEGER)");
+            db.execSQL("insert into EMPLOYEE values(1,'ali',1)");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

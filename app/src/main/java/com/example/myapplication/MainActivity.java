@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         spnrsub = (Spinner) findViewById(R.id.spnrsub);
-
+         btnlogin=findViewById(R.id.btnlogin);
+         et1=findViewById(R.id.et1);
+         et2=findViewById(R.id.et2);
         String[] listCities = new String[]{"Islamabad", "Lahore",
                 "Rawalpindi"};
         ArrayAdapter adapter = new ArrayAdapter(this,
@@ -40,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
      //   layoutManager = new LinearLayoutManager(this);
        // recyclerView.setLayoutManager(layoutManager);
         DBHelper objHelper = new DBHelper(MainActivity.this);
-        objHelper.insertEmployee("12-13","Ali",1212);
-        objHelper.insertEmployee("12-13","Ali",1212);
-        objHelper.insertEmployee("12-13","Ali",1212);
 
 
 
@@ -50,10 +49,11 @@ public class MainActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String uid=   et1.getText().toString();
+                String uid= et1.getText().toString();
                 int upass= Integer.parseInt(et2.getText().toString());
                 for(int i=0;i<data.size();i++){
-                    if(data.get(i).id.equals(uid)&& data.get(i).pass==(upass)){
+
+                    if(data.get(i).name.equals(uid) && data.get(i).pass==upass){
                         Intent intent = new Intent(MainActivity.this,
                                 SecondActivity.class) ;
                         Bundle bundle = new Bundle();
